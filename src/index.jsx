@@ -14,5 +14,5 @@ ReactDOM.render(
   <React.StrictMode>
     <App tasks={DATA} />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('app')
 );

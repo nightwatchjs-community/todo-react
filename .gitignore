@@ -1,2 +1,5 @@
 .env
 /node_modules/
+/tests_output/
+/.vscode/
+/logs/
