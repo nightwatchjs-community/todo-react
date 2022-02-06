@@ -22,6 +22,9 @@ npm run build
 ### Customize configuration
 See [Configuration Reference](https://vitejs.dev/config/).
 
+## Preview
+You can see this project deployed live at: https://todo-react-vite.netlify.app
+
 ## Run tests
 Tests are written using [Nightwatch 2](https://nightwatchjs.org/) and cover both component testing and end-to-end testing.
 
