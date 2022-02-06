@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   componentDidUpdate(oldProps, oldState) {
-    if (this.state.tasks.length - oldState.prevTaskLength == -1) {
+    if (this.state.tasks.length - oldState.prevTaskLength === -1) {
       this.listHeadingRef.current.focus;
     }
   }

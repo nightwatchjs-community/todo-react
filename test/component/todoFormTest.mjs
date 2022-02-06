@@ -1,12 +1,14 @@
 describe('Component testing', function () {
   browser.baseUrl = browser.baseUrl || 'http://localhost:3000';
 
-  it('testing todo heading component', async function (browser) {
-    const component = await browser.mountReactComponent(
-      '/src/components/Form.jsx'
-    );
-    browser.assert.ok(component, 'component is rendered');
-    const labelEl = await component.findElement('label[for="new-todo-input"]');
-    expect(labelEl).text.toContain('What needs to be done?');
+  let component;
+  before(async browser => {
+    component = await browser.mountReactComponent('/src/components/Form.jsx');
+  })
+
+  it('testing todo heading component', function (browser) {
+    browser.expect(component).to.be.visible;
+
+    expect(component.find('label[for="new-todo-input"]')).text.toContain('What needs to be done?');
   });
 });
