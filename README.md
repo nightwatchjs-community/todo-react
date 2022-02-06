@@ -2,7 +2,7 @@
 Sample todo app built with the Vue3+Vite. For the accompanying documentation, see MDN article
 [Understanding client-side JavaScript frameworks : React tutorials](https://wiki.developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks#React_tutorials).
 
-This project uses [ES Modules](https://nodejs.org/api/esm.html). Node 12+ required. For the live version, see https://mdn.github.io/todo-vue/dist/.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fc4d39f7-69c2-421d-b95b-ac1873dfed9e/deploy-status)](https://app.netlify.com/sites/todo-react-vite/deploys)
 
 ## Project setup
 ```
