@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.2.0",
-    "chromedriver": "^98.0.0",
+    "chromedriver": "^97.0.4",
     "geckodriver": "^3.0.1",
     "nightwatch": "^2.0.6",
     "vite": "^2.8.0",
