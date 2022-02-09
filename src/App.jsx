@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 import Todo from './components/Todo';
 import { nanoid } from 'nanoid';
+
+function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
 
 const FILTER_MAP = {
   All: () => true,
@@ -12,24 +20,12 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tasks: props.tasks || [],
-      filter: 'All'
-    };
-    this.listHeadingRef = React.createRef();
-  }
+function App(props) {
+  const [tasks, setTasks] = useState(props.tasks);
+  const [filter, setFilter] = useState('All');
 
-  componentDidUpdate(oldProps, oldState) {
-    if (this.state.tasks.length - oldState.prevTaskLength === -1) {
-      this.listHeadingRef.current.focus;
-    }
-  }
-
-  toggleTaskCompleted = (id) => {
-    const updatedTasks = this.state.tasks.map((task) => {
+  function toggleTaskCompleted(id) {
+    const updatedTasks = tasks.map((task) => {
       // if this task has the same ID as the edited task
       if (id === task.id) {
         // use object spread to make a new obkect
@@ -38,16 +34,16 @@ class App extends React.Component {
       }
       return task;
     });
-    this.setState({ tasks: updatedTasks });
-  };
+    setTasks(updatedTasks);
+  }
 
-  deleteTask = (id) => {
-    const remainingTasks = this.state.tasks.filter((task) => id !== task.id);
-    this.setState({ tasks: remainingTasks });
-  };
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter((task) => id !== task.id);
+    setTasks(remainingTasks);
+  }
 
-  editTask = (id, newName) => {
-    const editedTaskList = this.state.tasks.map((task) => {
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map((task) => {
       // if this task has the same ID as the edited task
       if (id === task.id) {
         //
@@ -55,64 +51,65 @@ class App extends React.Component {
       }
       return task;
     });
-    this.setState({ tasks: editedTaskList });
-  };
+    setTasks(editedTaskList);
+  }
 
-  taskList = () =>
-    this.state.tasks
-      .filter(FILTER_MAP[this.state.filter])
-      .map((task) => (
-        <Todo
-          id={task.id}
-          name={task.name}
-          completed={task.completed}
-          key={task.id}
-          toggleTaskCompleted={this.toggleTaskCompleted}
-          deleteTask={this.deleteTask}
-          editTask={this.editTask}
-        />
-      ));
-
-  filterList = () =>
-    FILTER_NAMES.map((name) => (
-      <FilterButton
-        key={name}
-        name={name}
-        isPressed={name === this.state.filter}
-        setFilter={(value) => this.setState({ filter: value })}
+  const taskList = tasks
+    .filter(FILTER_MAP[filter])
+    .map((task) => (
+      <Todo
+        id={task.id}
+        name={task.name}
+        completed={task.completed}
+        key={task.id}
+        toggleTaskCompleted={toggleTaskCompleted}
+        deleteTask={deleteTask}
+        editTask={editTask}
       />
     ));
 
-  addTask = (name) => {
+  const filterList = FILTER_NAMES.map((name) => (
+    <FilterButton
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
+
+  function addTask(name) {
     const newTask = { id: 'todo-' + nanoid(), name: name, completed: false };
-    this.setState((oldState) => {
-      return { tasks: [...oldState.tasks, newTask] };
-    });
-  };
-
-  tasksNoun = () => (this.taskList().length !== 1 ? 'tasks' : 'task');
-  headingText = () => `${this.taskList().length} ${this.tasksNoun()} remaining`;
-
-  render() {
-    return (
-      <div className='todoapp stack-large'>
-        <Form addTask={this.addTask} />
-        <div className='filters btn-group stack-exception'>
-          {this.filterList()}
-        </div>
-        <h2 id='list-heading' tabIndex='-1' ref={this.listHeadingRef}>
-          {this.headingText()}
-        </h2>
-        <ul
-          role='list'
-          className='todo-list stack-large stack-exception'
-          aria-labelledby='list-heading'
-        >
-          {this.taskList()}
-        </ul>
-      </div>
-    );
+    setTasks([...tasks, newTask]);
   }
+
+  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
+  const listHeadingRef = useRef(null);
+  const prevTaskLength = usePrevious(tasks.length);
+
+  useEffect(() => {
+    if (tasks.length - prevTaskLength === -1) {
+      listHeadingRef.current.focus();
+    }
+  }, [tasks.length, prevTaskLength]);
+
+  return (
+    <div className='todoapp stack-large'>
+      <Form addTask={addTask} />
+      <div className='filters btn-group stack-exception'>{filterList}</div>
+      <h2 id='list-heading' tabIndex='-1' ref={listHeadingRef}>
+        {headingText}
+      </h2>
+      <ul
+        role='list'
+        className='todo-list stack-large stack-exception'
+        aria-labelledby='list-heading'
+      >
+        {taskList}
+      </ul>
+    </div>
+  );
 }
 
 export default App;
