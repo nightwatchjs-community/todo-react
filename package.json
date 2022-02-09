@@ -20,6 +20,6 @@
     "geckodriver": "^3.0.1",
     "nightwatch": "2.0.5",
     "vite": "2.7.13",
-    "vite-plugin-nightwatch": "^0.2.7"
+    "vite-plugin-nightwatch": "^0.2.9"
   }
 }
