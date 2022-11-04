@@ -37,12 +37,6 @@ export const AnotherForm = Object.assign(
     />
   ),
   {
-    async preRender() {},
-
-    async postRender() {
-      console.log('after mount', window);
-    },
-
     async play({ canvasElement, args }) {
       console.log('play function', args);
 
