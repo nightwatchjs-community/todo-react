@@ -27,6 +27,7 @@ function Form(props) {
       <input
         type='text'
         id='new-todo-input'
+        data-testid='new-todo-input'
         className='input input__lg'
         name='text'
         autoComplete='off'
