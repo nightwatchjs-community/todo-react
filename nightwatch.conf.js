@@ -12,11 +12,11 @@ module.exports = {
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
   src_folders: [],
-  plugins: ['vite-plugin-nightwatch'],
+  plugins: ['@nightwatch/react'],
   page_objects_path: ['node_modules/nightwatch/examples/pages/'],
   custom_commands_path: ['node_modules/nightwatch/examples/custom-commands/'],
   custom_assertions_path: '',
-  globals_path : 'test/globals.cjs',
+  globals_path: 'test/globals.cjs',
 
   test_settings: {
     default: {
@@ -29,9 +29,9 @@ module.exports = {
         on_failure: true
       },
 
-      desiredCapabilities : {
-        browserName : 'chrome',
-        'goog:chromeOptions' : {
+      desiredCapabilities: {
+        browserName: 'chrome',
+        'goog:chromeOptions': {
           // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
           w3c: true,
           args: [
@@ -52,8 +52,8 @@ module.exports = {
     },
 
     safari: {
-      desiredCapabilities : {
-        browserName : 'safari',
+      desiredCapabilities: {
+        browserName: 'safari',
         alwaysMatch: {
           acceptInsecureCerts: false
         }
@@ -65,8 +65,8 @@ module.exports = {
     },
 
     firefox: {
-      desiredCapabilities : {
-        browserName : 'firefox',
+      desiredCapabilities: {
+        browserName: 'firefox',
         alwaysMatch: {
           acceptInsecureCerts: true,
           'moz:firefoxOptions': {
@@ -87,13 +87,12 @@ module.exports = {
       }
     },
 
-    chrome: {
-    },
+    chrome: {},
 
     edge: {
-      desiredCapabilities : {
-        browserName : 'MicrosoftEdge',
-        'ms:edgeOptions' : {
+      desiredCapabilities: {
+        browserName: 'MicrosoftEdge',
+        'ms:edgeOptions': {
           w3c: true,
           // More info on EdgeDriver: https://docs.microsoft.com/en-us/microsoft-edge/webdriver-chromium/capabilities-edge-options
           args: [
@@ -129,9 +128,9 @@ module.exports = {
       // More info on configuring capabilities can be found on:
       // https://www.browserstack.com/automate/capabilities?tag=selenium-4
       desiredCapabilities: {
-        'bstack:options' : {
+        'bstack:options': {
           userName: '${BROWSERSTACK_USER}',
-          accessKey: '${BROWSERSTACK_KEY}',
+          accessKey: '${BROWSERSTACK_KEY}'
         }
       },
 
@@ -157,7 +156,7 @@ module.exports = {
       extends: 'browserstack',
       desiredCapabilities: {
         browserName: 'chrome',
-        chromeOptions : {
+        chromeOptions: {
           w3c: true
         }
       }
@@ -196,10 +195,10 @@ module.exports = {
       extends: 'browserstack.local',
       launch_url: 'http://192.168.10.184:3000/',
       desiredCapabilities: {
-        device : 'iPad Air 4',
-        realMobile : true,
-        os_version : 14,
-        browserName : 'safari',
+        device: 'iPad Air 4',
+        realMobile: true,
+        os_version: 14,
+        browserName: 'safari',
         'browserstack.networkLogs': true,
         'browserstack.console': 'errors',
         'browserstack.local': true
