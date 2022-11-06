@@ -29,15 +29,7 @@ You can see this project deployed live at: https://todo-react-vite.netlify.app
 ## Run tests
 Tests are written using [Nightwatch 2](https://nightwatchjs.org/) and cover both component testing and end-to-end testing.
 
-For component testing, the new [vite-plugin-nightwatch](https://www.npmjs.com/package/vite-plugin-nightwatch) plugin is used.
-
-Before running the tests, make sure the `Vite` dev server is running and that the localhost url matches that which is set in the `.env` file. By default it is set to `http://localhost:3000`.
-
-### Start the Vite dev server:
-
-```
-npm run dev
-```
+For component testing, the [@nightwatch/react](https://www.npmjs.com/package/@nightwatch/react) plugin is used.
 
 ### Run component tests
 This will run a sample component test for the `src/components/Form.jsx` component in Chrome:
