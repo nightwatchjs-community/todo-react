@@ -15,6 +15,10 @@ npm install
 npm run dev
 ```
 
+## Run tests
+
+Tests are written in Nightwatch, both at the component level and end-to-end. For component testing, the [@nightwatch/react](https://www.npmjs.com/package/@nightwatch/react) plugin is used.
+
 ### Compiles and minifies for production
 ```
 npm run build
@@ -32,32 +36,3 @@ npm run test:e2e
 
 ## Preview
 You can see this project deployed live at: https://todo-react-vite.netlify.app
-
-## Run tests
-Tests are written using [Nightwatch 2](https://nightwatchjs.org/) and cover both component testing and end-to-end testing.
-
-For component testing, the [@nightwatch/react](https://www.npmjs.com/package/@nightwatch/react) plugin is used.
-
-### Run component tests
-This will run a sample component test for the `src/components/Form.jsx` component in Chrome:
-
-```
-npm test
-```
-
-To run it in headless mode:
-```
-npm test -- --headless
-```
-
-### Run end-to-end tests
-This will run the end-to-end tests in Chrome:
-
-```
-npm run test-e2e
-```
-
-To run it in headless mode:
-```
-npm run test-e2e -- --headless
-```
