@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [14.x, 16.x, 18.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -19,6 +19,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - name: Run Nightwatch component tests
-        run: npm test -- --headless
+        run: npm test
       - name: Run Nightwatch e2e tests
-        run: npm run test:e2e -- --env e2e.chrome --headless
+        run: npm run test:e2e
