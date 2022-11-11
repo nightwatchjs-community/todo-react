@@ -1,5 +1,5 @@
 # todo-react-vite
-Sample todo app built with the React and Vite. For the accompanying documentation, see MDN article
+Sample todo app built with React and Vite. For the accompanying documentation, see MDN article
 [Understanding client-side JavaScript frameworks : React tutorials](https://wiki.developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks#React_tutorials).
 
 [![Nightwatch Tests](https://github.com/nightwatchjs-community/todo-react/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/nightwatchjs-community/todo-react/actions/workflows/node.js.yml)
@@ -20,8 +20,15 @@ npm run dev
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://vitejs.dev/config/).
+### Run component tests
+```sh
+npm test
+```
+
+### Run end-to-end tests
+```sh
+npm run test:e2e
+```
 
 ## Preview
 You can see this project deployed live at: https://todo-react-vite.netlify.app
