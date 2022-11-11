@@ -12,8 +12,8 @@
     "dev": "vite --host",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "nightwatch test/component/",
-    "test:e2e": "nightwatch test/e2e/"
+    "test": "nightwatch test/component/ --headless",
+    "test:e2e": "nightwatch test/e2e/ --env e2e.chrome --headless"
   },
   "devDependencies": {
     "@nightwatch/react": "0.3.4",
