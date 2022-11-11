@@ -1,5 +1,5 @@
 import { fireEvent, within } from '@testing-library/dom';
-import Form from '../../../src/components/Form.jsx';
+import Form from '../../src/components/Form.jsx';
 
 export default {
   title: 'Form Component',
@@ -22,13 +22,13 @@ export default {
   },
 
   // executed after each individual component story; runs in Node context
-  async preRender(browser, context) {
+  async postRender(browser, context) {
     // context is made of {id, name, title}
-    console.log('preRender', context.id);
+    console.log('postRender', context.id);
   }
 };
 
-export const AnotherForm = Object.assign(
+export const RenderedForm = Object.assign(
   () => (
     <Form
       addTask={function (value) {

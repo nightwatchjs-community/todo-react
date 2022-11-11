@@ -18,5 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - name: Run Nightwatch tests
+      - name: Run Nightwatch component tests
         run: npm test -- --headless
+      - name: Run Nightwatch e2e tests
+        run: npm run test:e2e -- --env e2e.chrome --headless

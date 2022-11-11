@@ -1,4 +1,4 @@
-import FilterButton from '../../../src/components/FilterButton.jsx';
+import FilterButton from '../../src/components/FilterButton.jsx';
 import { fireEvent, within } from '@testing-library/dom';
 
 export default {

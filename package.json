@@ -1,27 +1,29 @@
 {
-  "name": "moz-todo-react",
+  "name": "@nightwatch/todo-react",
   "version": "0.1.0",
   "dependencies": {
+    "chalk": "^5.1.2",
     "nanoid": "^3.1.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-dom": "^18.2.0"
   },
+  "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
     "serve": "vite preview",
     "test": "nightwatch test/component/",
-    "test-e2e": "nightwatch test/e2e/"
+    "test:e2e": "nightwatch test/e2e/"
   },
   "devDependencies": {
-    "@nightwatch/react": "^0.3.3",
+    "@nightwatch/react": "0.3.3",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/react": "^13.4.0",
     "@vitejs/plugin-react": "^1.2.0",
-    "chromedriver": "^107.0.3",
-    "geckodriver": "^3.0.1",
-    "nightwatch": "^2.4.2",
-    "vite": "^2.8.0"
+    "chromedriver": "107.0.3",
+    "geckodriver": "3.2.0",
+    "nightwatch": "2.5.0",
+    "nightwatch-axe-verbose": "^2.0.3",
+    "vite": "3.2.2"
   }
 }
