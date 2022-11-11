@@ -16,14 +16,13 @@
     "test:e2e": "nightwatch test/e2e/"
   },
   "devDependencies": {
-    "@nightwatch/react": "0.3.3",
+    "@nightwatch/react": "0.3.4",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/react": "^13.4.0",
     "@vitejs/plugin-react": "^1.2.0",
     "chromedriver": "107.0.3",
     "geckodriver": "3.2.0",
     "nightwatch": "2.5.0",
-    "nightwatch-axe-verbose": "^2.0.3",
     "vite": "3.2.2"
   }
 }
