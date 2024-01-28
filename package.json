@@ -16,13 +16,10 @@
     "test:e2e": "nightwatch test/e2e/ --env e2e.chrome --headless"
   },
   "devDependencies": {
-    "@nightwatch/react": "0.3.4",
+    "@nightwatch/react": "3.1.1",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/react": "^13.4.0",
-    "@vitejs/plugin-react": "^1.2.0",
-    "chromedriver": "107.0.3",
-    "geckodriver": "3.2.0",
-    "nightwatch": "2.5.0",
-    "vite": "3.2.2"
+    "nightwatch": "3.3.8",
+    "vite": "^4.0.4"
   }
 }
